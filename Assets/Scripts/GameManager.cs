@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,15 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public string[] Modules;
 
+    public void ScanModules(Dropdown drp)
+    {
+        string pathToModules = Application.dataPath + "/modules/";
+        string[] Saves = Directory.GetDirectories(pathToModules);
+        List<string> tmp = new List<string>();
+        for (int i = 0; i < Saves.Length; i++, tmp.Add(Saves[i]));
+        drp.AddOptions(tmp);
+        //суета ради суеты
+    }
     public void SetModule(int nmb)
     {
         CurrentModule = Modules[nmb];
@@ -29,6 +39,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-
 }

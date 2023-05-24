@@ -11,12 +11,12 @@ public class LookAtCamera : MonoBehaviour
         Vector3 viewDirection = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
         transform.LookAt(transform.position + viewDirection);
     }
-
+    /*
     public void OnDrawGizmos()
     {
         if (!Application.isPlaying)
         {
-            SceneView sceneView = GetActiveSceneView();
+            SceneView sceneView = (EditorWindow.focusedWindow != null && EditorWindow.focusedWindow.GetType() == typeof(SceneView)) ? (SceneView)EditorWindow.focusedWindow : null;
             if (sceneView)
             {
                 // Editor camera stands in for player camera in edit mode
@@ -24,14 +24,5 @@ public class LookAtCamera : MonoBehaviour
                 transform.LookAt(transform.position + viewDirection);
             }
         }
-    }
-
-    private SceneView GetActiveSceneView()
-    {
-        // Return the focused window if it is a SceneView
-        if (EditorWindow.focusedWindow != null && EditorWindow.focusedWindow.GetType() == typeof(SceneView))
-            return (SceneView)EditorWindow.focusedWindow;
-
-        return null;
-    }
+    }*/
 }
